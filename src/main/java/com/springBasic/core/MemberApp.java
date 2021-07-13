@@ -1,6 +1,11 @@
-package com.springBasic.core.member;
+package com.springBasic.core;
 
-public class MemberApp {
+import com.springBasic.core.member.Grade;
+import com.springBasic.core.member.Member;
+import com.springBasic.core.member.MemberService;
+import com.springBasic.core.member.MemberServiceImpl;
+
+public class MemberApp { // member 확인 클래스
 
     public static void main(String[] args) {
         MemberService memberService = new MemberServiceImpl();
