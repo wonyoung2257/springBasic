@@ -1,5 +1,6 @@
 package com.springBasic.core.order;
 
+import com.springBasic.core.annotation.MainDiscountPolicy;
 import com.springBasic.core.discount.DiscountPolicy;
 import com.springBasic.core.discount.FixDiscountPolicy;
 import com.springBasic.core.discount.RateDiscountPolicy;
@@ -11,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor // final이 붙은 필드의 생성자를 자동으로 만들어줌
+//@RequiredArgsConstructor // final이 붙은 필드의 생성자를 자동으로 만들어줌
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
@@ -27,10 +28,10 @@ public class OrderServiceImpl implements OrderService{
 //        this.discountPolicy = discountPolicy;
 //    }
 
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    public OrderServiceImpl(MemberRepository memberRepository,@MainDiscountPolicy DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
 //        private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
 
